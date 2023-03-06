@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 778.82 294.85">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #f9b14b;
+        stroke-width: 20px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8 {
+        font-family: Dreamboat-Bold, Dreamboat;
+        font-size: 116.84px;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #1e1e1e;
+      }
+
+      .cls-9, .cls-10 {
+        font-family: NotoMusic-Regular, 'Noto Music';
+        font-size: 132.33px;
+      }
+
+      .cls-6, .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        stroke-width: 3px;
+      }
+
+      .cls-10 {
+        fill: #8b1913;
+      }
+
+      .cls-7, .cls-8 {
+        fill: #1d1d1b;
+      }
+
+      .cls-11 {
+        fill: #f9b14b;
+      }
+
+      .cls-12 {
+        fill: #8b1812;
+      }
+    </style>
+  </defs>
+  <g id="Logo">
+    <g>
+      <circle class="cls-11" cx="145.25" cy="149.59" r="145.25"/>
+      <circle class="cls-12" cx="145.25" cy="149.59" r="53.29"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="129.06"/>
+      <circle class="cls-1" cx="145.25" cy="149.59" r="6.56"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="116.19"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="110.26"/>
+      <circle class="cls-3" cx="145.25" cy="149.59" r="45.97"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="122.41"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="104.5"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="94.08"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="89.28"/>
+      <circle class="cls-4" cx="145.25" cy="149.59" r="99.12"/>
+    </g>
+    <g>
+      <text transform="translate(16.95 186.53)"><tspan><tspan class="cls-8" x="0" y="0" xml:space="preserve">S    und </tspan><tspan class="cls-10" x="382.05" y="0">𝄞</tspan><tspan class="cls-7" x="476.14" y="0">Craft</tspan></tspan></text>
+      <text class="cls-2" transform="translate(16.95 186.53)"><tspan class="cls-5" x="0" y="0" xml:space="preserve">S    und </tspan><tspan class="cls-9" x="382.05" y="0">𝄞</tspan><tspan class="cls-6" x="476.14" y="0">Craft</tspan></text>
+      <text class="cls-12" transform="translate(16.95 186.53)"><tspan class="cls-5" x="0" y="0" xml:space="preserve">S    und </tspan><tspan class="cls-9" x="382.05" y="0">𝄞</tspan><tspan class="cls-6" x="476.14" y="0">Craft</tspan></text>
+    </g>
+  </g>
+</svg>
