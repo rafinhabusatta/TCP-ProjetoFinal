@@ -4,8 +4,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import electron from 'vite-electron-plugin'
 import { customStart, loadViteEnv } from 'vite-electron-plugin/plugin'
+import preload from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
 import pkg from './package.json'
+
+let preloadHasReady = false
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -23,23 +26,49 @@ export default defineConfig(({ command }) => {
       react(),
       electron({
         include: [
-          'electron'
+          'electron/main'
         ],
         transformOptions: {
           sourcemap,
         },
         plugins: [
-          ...(!!process.env.VSCODE_DEBUG
-            ? [
-              // Will start Electron via VSCode Debug
-              customStart(() => console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')),
-            ]
-            : []),
-          // Allow use `import.meta.env.VITE_SOME_KEY` in Electron-Main
+          customStart(args => {
+            if (process.env.VSCODE_DEBUG) {
+              // Start Electron via VSCode
+              console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
+            } else {
+              if (preloadHasReady) {
+                args?.startup()
+              } else {
+                console.log('[startup] waiting for preload')
+              }
+            }
+          }),
+          // Allow use `import.meta.env.VITE_SOME_KEY` in Main process
           loadViteEnv(),
         ],
       }),
-      // Use Node.js API in the Renderer-process
+      // Preload scripts
+      preload({
+        entry: [
+          'electron/preload/index.ts'
+        ],
+        vite: {
+          build: {
+            minify: false,
+            outDir: 'dist-electron/preload',
+          },
+        },
+        onstart(args) {
+          if (preloadHasReady) {
+            args.reload()
+          } else {
+            preloadHasReady = true
+            args.startup()
+          }
+        },
+      }),
+      // Use Node.js API in the Renderer process
       renderer({
         nodeIntegration: true,
       }),
