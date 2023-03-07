@@ -16,18 +16,20 @@
     "e2e": "playwright test"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
+    "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.31.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0",
-    "@playwright/test": "^1.31.0",
     "electron": "^23.1.1",
     "electron-builder": "^23.6.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
     "vite-electron-plugin": "^0.8.2",
     "vite-plugin-electron": "^0.11.1",
     "vite-plugin-electron-renderer": "^0.12.1"

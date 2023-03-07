@@ -1,0 +1,42 @@
+.btnApp {
+  background-image: linear-gradient(
+    to right bottom,
+    #182c47,
+    #5c3e6f,
+    #ad4875,
+    #e96458,
+    #f6a126
+  );
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 300px;
+  height: 60px;
+  box-shadow: 0px 4px 100px 1px #a74356;
+  border-radius: 18px;
+}
+
+@keyframes btn {
+  0% {
+    box-shadow: 2px 2px 25px #ff008e;
+  }
+  25% {
+    box-shadow: 2px 2px 25px #ff7346;
+  }
+  50% {
+    box-shadow: 2px 2px 25px #ffa226;
+  }
+  75% {
+    box-shadow: 2px 2px 25px #ffcd1e;
+  }
+  100% {
+    box-shadow: 2px 2px 25px #ff008e;
+  }
+}

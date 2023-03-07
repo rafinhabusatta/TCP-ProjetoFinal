@@ -1,0 +1,21 @@
+.text-input {
+  background-image: linear-gradient(
+    to right top,
+    #8b1812,
+    #a12d3b,
+    #b14661,
+    #ba6186,
+    #bf7ca7,
+    #cd85af,
+    #db8fb6,
+    #e999be,
+    #ff95a8,
+    #ff988b,
+    #ffa16a,
+    #f9b14b
+  );
+  height: 100%;
+  width: 100%;
+  border-radius: 18px;
+  margin-right: 100px;
+}

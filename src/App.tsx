@@ -1,34 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from './assets/sound-craft-logo.svg'
 import './App.css'
-import { Button } from './components/Button'
+import { Button } from './components/Button/Button'
+import { TextInput } from './components/TextInput/TextInput'
+import { TextBox } from './components/TextBox/TextBox'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { FileText, MusicNotesPlus, MusicNoteSimple } from 'phosphor-react'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
+      <header className="App-header">
+        <img src={reactLogo} className="App-logo" alt="logo" />
+      </header>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <TextBox title="Bem-vindo ao SoundCraft!" content="Com essa ferramenta você pode criar música através de texto! Para começar, basta você digitar o texto na caixa abaixo, ou então carregar um arquivo texto pronto, e selecionar um instrumento. Por fim, clique em Gerar música para você conseguir ouvir a música criada por você! Você pode salvá-la para compartilhar com seus amigos." />
       </div>
-      <h1>Vite + React</h1>
-      <Button label="Click me" onClick={() => setCount((count) => count + 1)} />
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="grid">
+        <div className="text">
+          <TextInput content="Digite o texto aqui" />
+        </div>
+        <div className="buttons">
+          <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => setCount((count) => count + 1)} />
+          <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => setCount((count) => count + 1)} />
+          <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={() => setCount((count) => count + 1)} />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
