@@ -7,9 +7,11 @@ import { TextBox } from './components/TextBox/TextBox'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { FileText, MusicNotesPlus, MusicNoteSimple } from 'phosphor-react'
+import { createUserFile } from './createUserFile'
 
 function App() {
   const [count, setCount] = useState(0)
+  const InputId = "userText"
 
   return (
     <div className="App">
@@ -21,12 +23,12 @@ function App() {
       </div>
       <div className="grid">
         <div className="text">
-          <TextInput content="Digite o texto aqui" />
+          <TextInput id={InputId} />
         </div>
         <div className="buttons">
           <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => setCount((count) => count + 1)} />
           <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => setCount((count) => count + 1)} />
-          <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={() => setCount((count) => count + 1)} />
+          <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={() => createUserFile(InputId)} />
         </div>
       </div>
     </div>
@@ -34,3 +36,4 @@ function App() {
 }
 
 export default App
+

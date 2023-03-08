@@ -2,22 +2,11 @@ import React from "react";
 import "./TextInput.css";
 
 export interface TextInputProps {
-  content: string;
+  id: string;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({ content }) => {
+export const TextInput: React.FC<TextInputProps> = ({ id }) => {
   return (
-    <form className="text-input">
-      <input 
-        type="text"
-        id="title"
-        placeholder="digite o texto aqui"
-        autoFocus
-        value={content}
-        onChange={event => setTitle(event.target.value)}  
-      />
-    </form>
-
-    
+    <textarea name="" className="form-control text-input" id={id}></textarea>  
   );
 };
