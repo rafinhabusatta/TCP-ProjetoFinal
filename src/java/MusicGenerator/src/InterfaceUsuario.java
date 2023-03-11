@@ -1,3 +1,5 @@
+
+/*
 public class InterfaceUsuario {
     constructor() {
         this.musicGenerator = new MusicGenerator(new Instrument());
@@ -16,3 +18,4 @@ public class InterfaceUsuario {
         // reproduz a música
     }
 }
+*/
