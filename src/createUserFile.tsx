@@ -1,27 +1,13 @@
-import React from "react";
-export function createUserFile(id: string) {
-  // class NameForm extends React.Component {
-  //   constructor(props: {} | Readonly<{}>) {
-  //     super(props);
-  //     this.state = {value: ''};
-  //     this.handleChange = this.handleChange.bind(this);
-  //     this.handleSubmit = this.handleSubmit.bind(this);
-  //   }
-  
-  //   handleChange(event) {    this.setState({value: event.target.value});  }
-  //   handleSubmit(event) {
-  //     alert('A name was submitted: ' + this.state.value);
-  //     event.preventDefault();
-  //   }
-  
-  //   render() {
-  //     return (
-  //       <form onSubmit={this.handleSubmit}>        <label>
-  //           Name:
-  //           <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
-  //         <input type="submit" value="Submit" />
-  //       </form>
-  //     );
-  //   }
-  // }
+export function createUserFile( id: string) {
+  const text = (document.getElementById(id ) as HTMLTextAreaElement)?.value;
+  if (text) {
+    const blob = new Blob([text], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "soundcraft.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    alert("Arquivo criado com sucesso!");
+  }
 }
