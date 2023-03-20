@@ -1,15 +1,15 @@
-import	java.io.File;
-import	java.io.FileNotFoundException;
-import	java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class TextReader	{
-	public static void main(String[] args) throws FileNotFoundException	{
-		//File file = new File("C:\Users\rsb_\TCP\TCP-ProjetoFinal\src\java\MusicGenerator\src\textodeteste.txt");
-		File file = new File("teste.txt");
-		Scanner scan = new Scanner(file);
-		while(scan.hasNextLine()){
-			System.out.println(scan.nextLine());
-			}
-			scan.close();
-		}
+	public static void main(String[] args)
+	throws IOException{
+		Path fileName = Path.of("./teste/soundcraft.txt");
+
+		String textReaderout = Files.readString(fileName);
+
+		System.out.println(textReaderout);
+
+	}
 }
