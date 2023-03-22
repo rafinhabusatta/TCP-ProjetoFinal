@@ -8,7 +8,7 @@ export function createUserFile(id: string) {
   const path = require('path');
   const fileName = 'soundcraft.txt'
   const defaultPath = path.join(directory, fileName);
-  
+
   const fileContent = (document.getElementById(id)as HTMLTextAreaElement)?.value
   fs.writeFile(defaultPath, fileContent, (err: String) => {
     if (err) {
@@ -17,7 +17,7 @@ export function createUserFile(id: string) {
       console.log('Arquivo salvo com sucesso em', defaultPath)
     }
   })
-  }
+}
 
 
 
