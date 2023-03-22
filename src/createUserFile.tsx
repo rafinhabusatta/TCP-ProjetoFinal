@@ -1,27 +1,24 @@
-import React from "react";
 export function createUserFile(id: string) {
-  // class NameForm extends React.Component {
-  //   constructor(props: {} | Readonly<{}>) {
-  //     super(props);
-  //     this.state = {value: ''};
-  //     this.handleChange = this.handleChange.bind(this);
-  //     this.handleSubmit = this.handleSubmit.bind(this);
-  //   }
-  
-  //   handleChange(event) {    this.setState({value: event.target.value});  }
-  //   handleSubmit(event) {
-  //     alert('A name was submitted: ' + this.state.value);
-  //     event.preventDefault();
-  //   }
-  
-  //   render() {
-  //     return (
-  //       <form onSubmit={this.handleSubmit}>        <label>
-  //           Name:
-  //           <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
-  //         <input type="submit" value="Submit" />
-  //       </form>
-  //     );
-  //   }
-  // }
+  const fs = require('fs')
+  const directory =  `${window.process.cwd()}/src/text`
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true })
+  }
+
+  const path = require('path');
+  const fileName = 'soundcraft.txt'
+  const defaultPath = path.join(directory, fileName);
+
+  const fileContent = (document.getElementById(id)as HTMLTextAreaElement)?.value
+  fs.writeFile(defaultPath, fileContent, (err: String) => {
+    if (err) {
+      console.error(err)
+    } else {
+      console.log('Arquivo salvo com sucesso em', defaultPath)
+    }
+  })
 }
+
+
+
+

@@ -1,7 +1,7 @@
 import React from "react";
 import "./TextInput.css";
 
-export interface TextInputProps {
+interface TextInputProps {
   id: string;
 }
 
