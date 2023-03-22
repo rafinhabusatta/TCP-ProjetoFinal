@@ -26,7 +26,7 @@ function App() {
           <TextInput id={InputId} />
         </div>
         <div className="buttons">
-          <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => loadFile()} />
+          <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => alert("oi")} />
           <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} />
           <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={() => createUserFile(InputId)} />
         </div>

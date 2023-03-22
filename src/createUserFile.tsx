@@ -17,6 +17,25 @@ export function createUserFile(id: string) {
       console.log('Arquivo salvo com sucesso em', defaultPath)
     }
   })
+  JavaCall();
+}
+
+function JavaCall() {
+  const { exec } = require('child_process');
+  const javaFunction = 'main';
+  const jarPath = `${window.process.cwd()}/src/java/MusicGenerator/out/artifacts/MusicGenerator_jar/MusicGenerator.jar`;
+  
+  const command = `echo ${javaFunction} | java -jar ${jarPath}`;
+
+  exec(command, (err: String, stdout: String, stderr: String) => {
+    if (err) {
+      console.error(`Erro ao executar a função Java: ${err}`);
+      return;
+    } else {
+      console.log(stdout);
+    }
+  });
+
 }
 
 

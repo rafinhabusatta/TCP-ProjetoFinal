@@ -2,19 +2,24 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+public class TextReader {
 
-public class TextReader	{
+	private String userText;
 
-	private static String textReaderout;
-
-	public static void main(String[] args)
-	throws IOException{
-		Path fileName = Path.of("./text/soundcraft.txt");
-
-		textReaderout = Files.readString(fileName);
+	public TextReader() {
+		this.userText = "";
 	}
 
-	public String gettextReaderout(){
-		return TextReader.textReaderout;
+	public TextReader(String userText) {
+		this.userText = userText;
+	}
+
+	public void readText() throws IOException {
+		Path fileName = Path.of("../../../text/soundcraft.txt");
+		this.userText = Files.readString(fileName);
+	}
+
+	public String getUserText() {
+		return this.userText;
 	}
 }
