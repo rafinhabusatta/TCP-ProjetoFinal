@@ -1,10 +1,14 @@
 
 public class DecodificaTexto {
-    private String textoMusical;
 
-    private int oitava_Atual = 5;//pode ser uma constante
-    private int volume_Atual = 60;//pode ser uma constante
-    private int volume_maximo = 127;//pode ser uma constante
+    private int numeroInstrumento = 0;
+    private int oitavaAtual = 5;
+    private int volumeAtual = 60;
+
+    private final int oitavaMaxima = 10;
+    private final int volumeMaximo = 127;
+
+    private String textoMusical;
 
     public DecodificaTexto(String textoMusical) {
         this.textoMusical = textoMusical;
@@ -18,9 +22,8 @@ public class DecodificaTexto {
         String resultado = "";
         for(int i = 0; i < textoMusical.length(); i++){
             string letra = textoMusical.charAt(i);
-            if(ehNota(letra)){
+            if(ehNota(letra))
                 resultado.append(qualNota(letra));
-            }
             else if(ehNotaMinuscula(letra) || ehConsoante(letra)){
                 string letraAnterior = textoMusical.charAt(i-1);
                 if(ehNota(letraAnterior))
@@ -28,20 +31,29 @@ public class DecodificaTexto {
                 else
                     resultado.append("  ");
             }
-            else if(letra == ' ') {//definir
-                if(volume_Atual*2 > volume_maximo) {
-                    volume_Atual = volume_Atual;
-                }else
-                    volume_Atual = volume_Atual * 2;
-            }else if(letra == '!')
-                result.append("I[Agogo] ");
-            else if(ehVogal(letra)){
-                resultado.append("I[HARPISCHORD] ");         
+            else if(letra == ' ') {
+                if(this.volume_Atual*2 > volumeMaximo) {
+                    this.volumeAtual = 60;
+                }
+                else
+                    this.volumeAtual = this.volumeAtual * 2;
             }
-            else if(Character.isDigit(letra)) //definir heuristica
-                resultado.append("I[PIANO] ");
-            else if(letra == '?')
-                oitava_Atual++;
+            else if(letra == '!')
+                result.append("I[Agogo] ");
+            else if(ehVogal(letra))
+                resultado.append("I[HARPISCHORD] ");         
+            else if(Character.isDigit(letra)){
+                numeroInstrumento += Character.getNumericValue(letra);
+                String instrumento = "I["+numeroInstrumento +"] ";
+                resultado.append(instrumento);
+            }
+            else if(letra == '?'){
+                if((this.oitavaAtua + 1) > this.oitavaMaxima)
+                    this.oitavaAtual = 5;
+                else
+                    this.oitavaAtual++;
+
+            }
             else if(letra == '\n')
                 resultado.append("I[TUBULAR_BELLS] ");
             else if(letra == ';')
@@ -147,19 +159,19 @@ public class DecodificaTexto {
 
     public String qualNota(char letra){
         if(letra == 'A')
-            return "A" + oitava_Atual + "a" + volume_Atual + " ";
+            return "A" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else if(letra == 'B')
-            return "B" + oitava_Atual + "a" + volume_Atual + " ";
+            return "B" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else if(letra == 'C')
-            return "C" + oitava_Atual + "a" + volume_Atual + " ";
+            return "C" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else if(letra == 'D')
-            return "D" + oitava_Atual + "a" + volume_Atual + " ";
+            return "D" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else if(letra == 'E')
-            return "E" + oitava_Atual + "a" + volume_Atual + " ";
+            return "E" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else if(letra == 'F')
-            return "F" + oitava_Atual + "a" + volume_Atual + " ";
+            return "F" + this.oitavaAtual + "a" + this.volumeAtual + " ";
         else
-            return "G" + oitava_Atual + "a" + volume_Atual + " ";
+            return "G" + this.oitavaAtual + "a" + this.volumeAtual + " ";
     }
 
 }
