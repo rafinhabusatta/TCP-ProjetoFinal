@@ -2,7 +2,7 @@ import org.jfugue.pattern.Pattern;
 import Musica.ControlaMusica;
 import Arquivo.ControlaArquivo;
 import Texto.DecodificaTexto;
-import Constantes.Constantes;<<<<<<<HEAD
+import Constantes.Constantes;
 
 import java.io.IOException;
 import java.nio.file.Files;
