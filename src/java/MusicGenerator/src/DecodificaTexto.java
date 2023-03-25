@@ -1,5 +1,10 @@
+
 public class DecodificaTexto {
     private String textoMusical;
+
+    private int oitava_Atual = 5;//pode ser uma constante
+    private int volume_Atual = 60;//pode ser uma constante
+    private int volume_maximo = 127;//pode ser uma constante
 
     public DecodificaTexto(String textoMusical) {
         this.textoMusical = textoMusical;
@@ -23,9 +28,12 @@ public class DecodificaTexto {
                 else
                     resultado.append("  ");
             }
-            else if(letra == ' ') //definir
-                result.append("Dobra Volume");
-            else if(letra == '!')
+            else if(letra == ' ') {//definir
+                if(volume_Atual*2 > volume_maximo) {
+                    volume_Atual = volume_Atual;
+                }else
+                    volume_Atual = volume_Atual * 2;
+            }else if(letra == '!')
                 result.append("I[Agogo] ");
             else if(ehVogal(letra)){
                 resultado.append("I[HARPISCHORD] ");         
@@ -33,7 +41,7 @@ public class DecodificaTexto {
             else if(Character.isDigit(letra)) //definir heuristica
                 resultado.append("I[PIANO] ");
             else if(letra == '?')
-                resultado.append("Aumenta uma oitava")
+                oitava_Atual++;
             else if(letra == '\n')
                 resultado.append("I[TUBULAR_BELLS] ");
             else if(letra == ';')
@@ -139,19 +147,19 @@ public class DecodificaTexto {
 
     public String qualNota(char letra){
         if(letra == 'A')
-            return "A ";
+            return "A" + oitava_Atual + "a" + volume_Atual + " ";
         else if(letra == 'B')
-            return "B ";
+            return "B" + oitava_Atual + "a" + volume_Atual + " ";
         else if(letra == 'C')
-            return "C ";
+            return "C" + oitava_Atual + "a" + volume_Atual + " ";
         else if(letra == 'D')
-            return "D ";
+            return "D" + oitava_Atual + "a" + volume_Atual + " ";
         else if(letra == 'E')
-            return "E ";
+            return "E" + oitava_Atual + "a" + volume_Atual + " ";
         else if(letra == 'F')
-            return "F ";
+            return "F" + oitava_Atual + "a" + volume_Atual + " ";
         else
-            return "G ";
+            return "G" + oitava_Atual + "a" + volume_Atual + " ";
     }
 
 }
