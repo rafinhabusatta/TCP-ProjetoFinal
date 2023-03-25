@@ -9,8 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-=======>>>>>>>cc70758(Adiciona uma classe de constantes,e a classe de decodificação de texto também)
-
 public class Main {
     public static void main(String[] args) throws IOException {
 
