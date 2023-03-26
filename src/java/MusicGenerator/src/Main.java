@@ -2,12 +2,14 @@ import org.jfugue.pattern.Pattern;
 import Musica.ControlaMusica;
 import Arquivo.ControlaArquivo;
 import Texto.DecodificaTexto;
-import Constantes.Constantes;
+import Constantes.Constantes;<<<<<<<HEAD
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+=======>>>>>>>cc70758(Adiciona uma classe de constantes,e a classe de decodificação de texto também)
 
 public class Main {
     public static void main(String[] args) throws IOException {
