@@ -22,10 +22,14 @@ public class Main {
         Path fileName = Paths.get(filePath);
         text.readText();
 
-        System.out.print(text.getUserText());
+        System.out.print("Texto do usuário retirado do arquivo ");
+        System.out.println(text.getUserText()+'\n');
 
+        System.out.println("Cria controla música ");
         ControlaMusica musica = new ControlaMusica();
+        System.out.println("Cria controla arquivo ");
         ControlaArquivo arquivo = new ControlaArquivo();
+        System.out.println("Cria decod texto ");
         DecodificaTexto texto = new DecodificaTexto();
 
         int BPM = Constantes.BPM_PADRAO;
@@ -34,10 +38,11 @@ public class Main {
 
         String textoDecodificado = texto.processaTexto(text.getUserText());
 
+        System.out.print("Texto decodificado: ");
         System.out.println(textoDecodificado);
 
         Pattern pattern = musica.TocaMusica(BPM, Instrumento, textoDecodificado);
 
-        // arquivo.SalvarArquivo(pattern);
+        /*arquivo.SalvarArquivo(pattern);*/
     }
 }

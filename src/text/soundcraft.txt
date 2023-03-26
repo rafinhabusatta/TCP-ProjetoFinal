@@ -1,2 +1,1 @@
-Bem-vindo ao SoundCraft!
-Com essa ferramenta você pode criar música através de texto! Para começar, basta você digitar o texto na caixa abaixo, ou então carregar um arquivo texto pronto, e selecionar um instrumento. Por fim, clique em Gerar música para você conseguir ouvir a música criada por você! Você pode salvá-la para compartilhar com seus amigos.
+A B C D E
