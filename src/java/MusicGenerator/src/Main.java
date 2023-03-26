@@ -17,19 +17,17 @@ public class Main {
             System.exit(1);
         }
 
-        String filePath = args[0];
+        String filePath =  args[0]; // "E:/Users/rafab/Documentos/UFRGS/2022-2/Tcp/TabalhoPratico/src/text/soundcraft.txt";
         TextReader text = new TextReader(filePath);
-        Path fileName = Paths.get(filePath);
         text.readText();
 
         System.out.print("Texto do usuário retirado do arquivo ");
         System.out.println(text.getUserText()+'\n');
 
-        System.out.println("Cria controla música ");
         ControlaMusica musica = new ControlaMusica();
-        System.out.println("Cria controla arquivo ");
+
         ControlaArquivo arquivo = new ControlaArquivo();
-        System.out.println("Cria decod texto ");
+
         DecodificaTexto texto = new DecodificaTexto();
 
         int BPM = Constantes.BPM_PADRAO;
@@ -43,6 +41,6 @@ public class Main {
 
         Pattern pattern = musica.TocaMusica(BPM, Instrumento, textoDecodificado);
 
-        /*arquivo.SalvarArquivo(pattern);*/
+        arquivo.SalvarArquivo(pattern);
     }
 }

@@ -9,7 +9,7 @@ export function createUserFile(id: string, selectId: string) {
   const fileName = 'soundcraft.txt'
   const defaultPath = path.join(directory, fileName);
 
-  const fileContent = (document.getElementById(id)as HTMLTextAreaElement)?.value
+  const fileContent = (document.getElementById(id)as HTMLTextAreaElement)?.value.toUpperCase()
   fs.writeFile(defaultPath, fileContent, (err: String) => {
     if (err) {
       console.error(err)
