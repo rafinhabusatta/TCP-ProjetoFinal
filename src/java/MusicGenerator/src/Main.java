@@ -1,9 +1,8 @@
 import org.jfugue.pattern.Pattern;
-
-import Arquivo.ControlaArquivo;
-import Constantes.Constantes;
 import Musica.ControlaMusica;
+import Arquivo.ControlaArquivo;
 import Texto.DecodificaTexto;
+import Constantes.Constantes;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -39,6 +38,6 @@ public class Main {
 
         Pattern pattern = musica.TocaMusica(BPM, Instrumento, textoDecodificado);
 
-        arquivo.SalvarArquivo(pattern);
+        // arquivo.SalvarArquivo(pattern);
     }
 }

@@ -8,12 +8,12 @@ public class TextReader {
 	private String filePath;
 
 	public TextReader() {
-		//this.userText = "";
+		// this.userText = "";
 		this.filePath = "";
 	}
 
 	public TextReader(String filePath) {
-		//this.userText = userText;
+		// this.userText = userText;
 		this.filePath = filePath;
 	}
 
