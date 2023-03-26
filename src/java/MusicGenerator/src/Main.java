@@ -58,7 +58,7 @@ public class Main {
 
         int Instrumento = Constantes.INSTRUMENTO_PADRAO;
 
-        String textousuario = "ABCD ???ABCD";
+        String textousuario = "C D E F Ga A B ??  !C D E F Ga A B";
 
         String textofinal = texto.processaTexto(textousuario);
 
@@ -66,7 +66,7 @@ public class Main {
 
         Pattern pattern = musica.TocaMusica(BPM,Instrumento,textofinal);
 
-        arquivo.SalvarArquivo(pattern);
+        //arquivo.SalvarArquivo(pattern);
 
 >>>>>>> a9d05e2 (Adiciona uma main para testar a funcionalidade do código)
     }

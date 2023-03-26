@@ -14,7 +14,7 @@ public class ControlaArquivo implements IControlaArquivo {
      * Exibe um diálogo de salvar arquivo para que o usuário possa escolher um local de arquivo e retorna o caminho do arquivo selecionado.
      * Retorna Uma String com o caminho do arquivo selecionado pelo usuário, ou null se nenhum local foi selecionado.
      */
-    public  String EscolheLocalENomedoArquivo() {
+    public  String EscolheLocalENomeDoArquivo() {
         // Configura a aparência para a aparência padrão do sistema operacional
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -23,7 +23,7 @@ public class ControlaArquivo implements IControlaArquivo {
         }
         // Cria um objeto JFileChooser e configura o título
         JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        fileChooser.setDialogTitle("Salvar Arquivo TESTE");
+        fileChooser.setDialogTitle("Escolha onde voce quer salvar o arquivo:");
 
         // Exibe o diálogo e espera pela seleção do usuário
         int userSelection = fileChooser.showSaveDialog(null);
@@ -43,7 +43,7 @@ public class ControlaArquivo implements IControlaArquivo {
         return null;
     }
     public void SalvarArquivo(Pattern pattern) {
-        String LocalENomeDoArquivo = EscolheLocalENomedoArquivo();
+        String LocalENomeDoArquivo = EscolheLocalENomeDoArquivo();
 
         if (LocalENomeDoArquivo == null) {
             System.out.println("Nenhum lugar foi escolhido, tente novamente.");

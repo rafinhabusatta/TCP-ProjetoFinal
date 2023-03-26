@@ -12,7 +12,7 @@ import org.jfugue.pattern.Pattern;
 
 public interface IControlaArquivo {
 
-    String EscolheLocalENomedoArquivo();
+    String EscolheLocalENomeDoArquivo();
 
     void SalvarArquivo(Pattern pattern);
 
