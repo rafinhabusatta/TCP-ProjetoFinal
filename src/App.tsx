@@ -8,10 +8,30 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { FileText, MusicNotesPlus, MusicNoteSimple } from 'phosphor-react'
 import { createUserFile } from './createUserFile'
+import { MusicScreen } from './components/MusicScreen/MusicScreen'
+import { BrowserWindow, ipcRenderer } from 'electron'
+import path from "path";
 
 function App() {
-  const [count, setCount] = useState(0)
   const InputId = "userText"
+  const [musicContent, setMusicContent] = useState('');
+  const [musicGenerated, setMusicGenerated] = useState(false);
+  
+  const generateMusic = () => {
+    createUserFile(InputId);
+    setMusicGenerated(true);
+  };
+
+  const restartApp = () => {
+    setMusicGenerated(false);
+    setMusicContent('');
+  };
+
+  if (musicGenerated) {
+    return (
+      <MusicScreen onRestart={restartApp} />
+    );
+  }
 
   return (
     <div className="App">
@@ -28,8 +48,10 @@ function App() {
         <div className="buttons">
           <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => alert("oi")} />
           <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} />
-          <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={() => createUserFile(InputId)} />
+          <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={generateMusic} />
+          
         </div>
+      
       </div>
     </div>
   )

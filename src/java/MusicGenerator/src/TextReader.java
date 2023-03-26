@@ -5,17 +5,20 @@ import java.nio.file.Path;
 public class TextReader {
 
 	private String userText;
+	private String filePath;
 
 	public TextReader() {
-		this.userText = "";
+		//this.userText = "";
+		this.filePath = "";
 	}
 
-	public TextReader(String userText) {
-		this.userText = userText;
+	public TextReader(String filePath) {
+		//this.userText = userText;
+		this.filePath = filePath;
 	}
 
 	public void readText() throws IOException {
-		Path fileName = Path.of("../../../text/soundcraft.txt");
+		Path fileName = Path.of(this.filePath);
 		this.userText = Files.readString(fileName);
 	}
 

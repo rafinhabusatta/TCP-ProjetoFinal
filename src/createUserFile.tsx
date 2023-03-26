@@ -17,22 +17,27 @@ export function createUserFile(id: string) {
       console.log('Arquivo salvo com sucesso em', defaultPath)
     }
   })
-  JavaCall();
+
+
+  JavaCall(directory);
 }
 
-function JavaCall() {
+function JavaCall(directory: string) {
   const { exec } = require('child_process');
   const javaFunction = 'main';
+  //const pathToJar = path.join(__dirname, '/src/java/MusicGenerator/out/artifacts/MusicGenerator_jar/MusicGenerator.jar');
+
   const jarPath = `${window.process.cwd()}/src/java/MusicGenerator/out/artifacts/MusicGenerator_jar/MusicGenerator.jar`;
   
-  const command = `echo ${javaFunction} | java -jar ${jarPath}`;
+  const command = `java -jar ${jarPath} ${directory}/soundcraft.txt`;
 
   exec(command, (err: String, stdout: String, stderr: String) => {
     if (err) {
       console.error(`Erro ao executar a função Java: ${err}`);
-      return;
+      return -1;
     } else {
       console.log(stdout);
+      return 0;
     }
   });
 
