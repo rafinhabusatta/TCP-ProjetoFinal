@@ -9,16 +9,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { FileText, MusicNotesPlus, MusicNoteSimple } from 'phosphor-react'
 import { createUserFile } from './createUserFile'
 import { MusicScreen } from './components/MusicScreen/MusicScreen'
-import { BrowserWindow, ipcRenderer } from 'electron'
-import path from "path";
+import { SelectBox } from './components/SelecBox/SelectBox'
 
 function App() {
   const InputId = "userText"
+  const SelectId = "selectBox"
   const [musicContent, setMusicContent] = useState('');
   const [musicGenerated, setMusicGenerated] = useState(false);
   
   const generateMusic = () => {
-    createUserFile(InputId);
+    createUserFile(InputId, SelectId);
     setMusicGenerated(true);
   };
 
@@ -46,8 +46,14 @@ function App() {
           <TextInput id={InputId} />
         </div>
         <div className="buttons">
-          <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => alert("oi")} />
-          <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} />
+          {/* <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => alert("oi")} /> */}
+          {/* <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} /> */}
+          <select id="selectBox" className="form-select" aria-label="Select box" >
+            <option selected>Open this select menu</option>
+            <option value="0">Piano</option>
+            <option value="24">Violão</option>
+            <option value="27">Guitarra</option>
+          </select>
           <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={generateMusic} />
           
         </div>
