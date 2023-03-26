@@ -1,8 +1,6 @@
 import org.jfugue.pattern.Pattern;
 import Musica.ControlaMusica;
 import Arquivo.ControlaArquivo;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Texto.DecodificaTexto;
 import Constantes.Constantes;
 
@@ -40,34 +38,6 @@ public class Main {
 
         Pattern pattern = musica.TocaMusica(BPM, Instrumento, textoDecodificado);
 
-        arquivo.SalvarArquivo(pattern);
-=======
-=======
-import Texto.DecodificaTexto;
-import Constantes.Constantes;
->>>>>>> cc70758 (Adiciona uma classe de constantes, e a classe de decodificação de texto também)
-public class Main {
-
-
-    public static void main(String[] args) {
-        ControlaMusica musica = new ControlaMusica();
-        ControlaArquivo arquivo = new ControlaArquivo();
-        DecodificaTexto texto = new DecodificaTexto();
-
-        int BPM = Constantes.BPM_PADRAO;
-
-        int Instrumento = Constantes.INSTRUMENTO_PADRAO;
-
-        String textousuario = "C D E F Ga A B ??  !C D E F Ga A B";
-
-        String textofinal = texto.processaTexto(textousuario);
-
-        System.out.println(textofinal);
-
-        Pattern pattern = musica.TocaMusica(BPM,Instrumento,textofinal);
-
-        //arquivo.SalvarArquivo(pattern);
-
->>>>>>> a9d05e2 (Adiciona uma main para testar a funcionalidade do código)
+        // arquivo.SalvarArquivo(pattern);
     }
 }

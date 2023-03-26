@@ -17,7 +17,7 @@ public  class DecodificaTexto implements IDecodificaTexto {
                 resultado.append(qualNota(letra));
             else if (ehNotaMinuscula(letra) || ehConsoante(letra)) {
                 if(i!=0)
-                 letraAnterior = textoMusical.charAt(i-1);
+                    letraAnterior = textoMusical.charAt(i-1);
                 if (ehNota(letraAnterior))
                     resultado.append(qualNota(letraAnterior));
                 else
