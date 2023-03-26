@@ -15,12 +15,29 @@ function App() {
   const InputId = "userText"
   const SelectId = "selectBox"
   const [musicContent, setMusicContent] = useState('');
+  const [text, setText] = useState('');
   const [musicGenerated, setMusicGenerated] = useState(false);
   
   const generateMusic = () => {
     createUserFile(InputId, SelectId);
     setMusicGenerated(true);
   };
+  const { ipcRenderer } = window.require('electron');
+
+  
+    function uploadFile() {
+      ipcRenderer.send('load-file');
+      ipcRenderer.once('file-loaded', (event, arg) => {
+        // Aqui você pode utilizar o conteúdo do arquivo retornado em arg para
+        // popular o campo de texto ou realizar outras ações.
+        arg = arg.toUpperCase();
+        console.log(arg);
+        setText(arg);
+      });
+    }
+
+
+
 
   const restartApp = () => {
     setMusicGenerated(false);
@@ -43,13 +60,13 @@ function App() {
       </div>
       <div className="grid">
         <div className="text">
-          <TextInput id={InputId} />
+          <TextInput id={InputId} value={text} onChange={(event) => setText(event.target.value)} />
         </div>
         <div className="buttons">
-          {/* <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={() => alert("oi")} /> */}
+          <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={uploadFile} />
           {/* <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} /> */}
           <select id="selectBox" className="form-select" aria-label="Select box" >
-            <option selected>Open this select menu</option>
+            <option className='text-center' selected>Instrumento</option>
             <option value="0">Piano</option>
             <option value="24">Violão</option>
             <option value="27">Guitarra</option>

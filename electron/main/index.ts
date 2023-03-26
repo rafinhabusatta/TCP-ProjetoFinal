@@ -114,3 +114,25 @@ ipcMain.handle('open-win', (_, arg) => {
     childWindow.loadFile(indexHtml, { hash: arg })
   }
 })
+
+const { dialog } = require('electron');
+const fs = require('fs');
+
+app.on('ready', () => {
+  ipcMain.on('load-file', (event) => {
+    dialog.showOpenDialog({
+      properties: ['openFile'],
+    }).then((result) => {
+      if (!result.canceled) {
+        const filePath = result.filePaths[0];
+        fs.readFile(filePath, 'utf-8', (err, data) => {
+          if (err) {
+            console.error(err);
+          } else {
+            event.reply('file-loaded', data);
+          }
+        });
+      }
+    });
+  });
+});
