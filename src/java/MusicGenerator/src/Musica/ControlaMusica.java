@@ -14,9 +14,7 @@ public class ControlaMusica implements IControlaMusica {
 =======
 
 public class ControlaMusica implements IControlaMusica {
-    public  Pattern TocaMusica(String musicString) {
-        int bpm = 120; // Define o andamento da música em batidas por minuto
-        int instrumento = 0; // Define o instrumento utilizado para tocar a música. Neste caso, o valor 24 representa um violão nylon.
+    public  Pattern TocaMusica(int bpm,int instrumento, String musicString) {
 
         Pattern pattern = new Pattern("T" + bpm + " I" + instrumento + " " + musicString); // Cria o pattern com a velocidade e instrumento definidos e adiciona a sequência de notas
 >>>>>>> 0147756 (Adiciona Interfaces Para as Classes)
