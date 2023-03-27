@@ -10,6 +10,7 @@ import { FileText, MusicNotesPlus, MusicNoteSimple } from 'phosphor-react'
 import { createUserFile } from './createUserFile'
 import { MusicScreen } from './components/MusicScreen/MusicScreen'
 import { SelectBox } from './components/SelecBox/SelectBox'
+import InputNumber from './components/InputNumber/InputNumber'
 
 function App() {
   const InputId = "userText"
@@ -19,7 +20,7 @@ function App() {
   const [musicGenerated, setMusicGenerated] = useState(false);
   
   const generateMusic = () => {
-    createUserFile(InputId, SelectId);
+    createUserFile(InputId, SelectId, 'InputNumber');
     setMusicGenerated(true);
   };
   const { ipcRenderer } = window.require('electron');
@@ -28,16 +29,11 @@ function App() {
     function uploadFile() {
       ipcRenderer.send('load-file');
       ipcRenderer.once('file-loaded', (event, arg) => {
-        // Aqui você pode utilizar o conteúdo do arquivo retornado em arg para
-        // popular o campo de texto ou realizar outras ações.
         arg = arg.toUpperCase();
         console.log(arg);
         setText(arg);
       });
     }
-
-
-
 
   const restartApp = () => {
     setMusicGenerated(false);
@@ -63,14 +59,9 @@ function App() {
           <TextInput id={InputId} value={text} onChange={(event) => setText(event.target.value)} />
         </div>
         <div className="buttons">
+          <SelectBox />
           <Button icon={<FileText className='me-2' />} label="Carregar Arquivo" onClick={uploadFile} />
-          {/* <Button icon={<MusicNoteSimple className='me-2' />} label="Instrumento" onClick={() => alert("oi")} /> */}
-          <select id="selectBox" className="form-select" aria-label="Select box" >
-            <option className='text-center' selected>Instrumento</option>
-            <option value="0">Piano</option>
-            <option value="24">Violão</option>
-            <option value="27">Guitarra</option>
-          </select>
+          <InputNumber id='InputNumber'/>
           <Button icon={<MusicNotesPlus className='me-2' />} label="Gerar Música" onClick={generateMusic} />
           
         </div>

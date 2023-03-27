@@ -1,22 +1,14 @@
-import React from "react";
-import "./SelectBox.css";
+import "../Button/Button.css";
 
-export interface SelectBoxProps {
-  id: string;
-  options: { value: string; label: string }[];
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}
-
-export function SelectBox(props: SelectBoxProps) {
-  const { id, options, onChange } = props;
+export function SelectBox() {
   return (
-    
-    <select id={id} className="form-select" onChange={onChange}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
+    <select id="selectBox" className="form-select" aria-label="Select box" >
+      <option className='text-center' selected>Instrumento</option>
+      <option value="0">Piano</option>
+      <option value="24">Violão</option>
+      <option value="27">Guitarra</option>
+      <option value="79">Ocarina</option>
+      <option value="40">Violino</option>
     </select>
   );
 }
